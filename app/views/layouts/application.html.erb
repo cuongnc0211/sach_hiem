@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InvestmentOwl</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+  </head>
+
+  <body>
+    <div id="layoutDefault">
+      <div id="layoutDefault_content">
+        <main>
+          <%= render 'layouts/shared/nav_bar' %>
+
+          <div id='flash-container'>
+            <%= render partial: 'layouts/shared/flash' %>
+          </div>
+
+          <%= yield %>
+        </main>
+      </div>
+
+      <%= render 'layouts/shared/footer' %>
+    </div>
+  </body>
+</html>
