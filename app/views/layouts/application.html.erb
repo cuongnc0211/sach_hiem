@@ -21,7 +21,13 @@
             <%= render partial: 'layouts/shared/flash' %>
           </div>
 
-          <%= yield %>
+          <%= render partial: 'layouts/shared/header' %>
+
+        <section class="bg-light py-10">
+          <div class="container px-5">
+            <%= yield %>
+          </div>
+        </section>
         </main>
       </div>
 
