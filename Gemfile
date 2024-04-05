@@ -82,3 +82,10 @@ gem 'slim'
 gem "chartkick"
 
 gem 'pagy'
+
+gem 'activeadmin'
+
+# Plus integrations with:
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
