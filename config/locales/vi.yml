@@ -5,3 +5,8 @@ vi:
       nav_bar:
         login: Đăng nhập
         dashboard: Bảng điều khiển
+  books:
+    index:
+      categories: Phân Loại
+      see_more: Xem thêm...
+      high_light: Nổi bật

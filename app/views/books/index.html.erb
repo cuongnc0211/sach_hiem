@@ -1,0 +1,17 @@
+
+<h2 class="mb-4"><%= t '.high_light' %></h2>
+<div class="row gx-5">
+  <%= render @books %>
+</div>
+
+<div class="mb-10">
+  <a class="text-arrow-icon" href="#!">
+    <%= t '.see_more' %>
+    <i data-feather="arrow-right"></i>
+  </a>
+</div>
+
+<h2 class="mb-4"><%= t ".categories" %></h2>
+<div class="row gx-5">
+  <%= render partial: 'category', collection: @categories, as: :category %>
+</div>

@@ -10,4 +10,6 @@ class Book < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["author_id", "category_id", "created_at", "description", "id", "id_value", "original_title", "publication_date", "status", "title", "updated_at"]
   end
+
+  delegate :name, to: :author, prefix: true
 end

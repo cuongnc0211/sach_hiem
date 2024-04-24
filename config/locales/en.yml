@@ -34,3 +34,8 @@ en:
       nav_bar:
         login: Login
         dashboard: Dashboard
+  books:
+    index:
+      categories: Categories
+      see_more: See more...
+      high_light: High Light
