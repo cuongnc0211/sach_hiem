@@ -4,8 +4,14 @@ ActiveAdmin.register Book do
   permit_params :title, :original_title, :description, :publication_date, :status, :author_id, :category_id,
                 book_versions_attributes: %i[id file_type file _destroy]
 
-  form do |f|
+  filter :title_cont, label: 'Title'
+  filter :original_title_cont, label: 'Original title'
+  filter :author_name_cont, label: 'Author'
+  filter :status, as: :select, collection: Book.statuses.keys.map { |status| [status.humanize, status] }
+  filter :category_name, as: :select, collection: Category.alphabetical.map { |category| [category.name, category.id] }
+  filter :book_versions_file_type, as: :select, collection: BookVersion.file_types.keys.map { |file_type| [file_type.humanize, file_type] }
 
+  form do |f|
     nested_errors = f.object.errors.select { |err| err.instance_of?(ActiveModel::NestedError) }
     if nested_errors.present?
       # add nested errors to base errors
@@ -28,6 +34,8 @@ ActiveAdmin.register Book do
           f.input :description, as: :text
           # f.input :description, as: :action_text
         end
+
+        f.submit "Submit"
       end
 
       column do
