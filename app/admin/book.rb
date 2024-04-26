@@ -1,3 +1,66 @@
 ActiveAdmin.register Book do
-  permit_params %i[title original_title description publication_date status author_id category_id]
+  menu parent: 'Manage Books', priority: 3, label: 'Books'
+
+  permit_params :title, :original_title, :description, :publication_date, :status, :author_id, :category_id,
+                book_versions_attributes: %i[id file_type file _destroy]
+
+  form do |f|
+
+    nested_errors = f.object.errors.select { |err| err.instance_of?(ActiveModel::NestedError) }
+    if nested_errors.present?
+      # add nested errors to base errors
+      f.object.errors.add(:base, nested_errors.map(&:message).join(', '))
+    end
+
+    columns do
+      column do
+        f.semantic_errors
+        f.inputs 'Books' do
+          f.input :author_id, as: :select, collection: Author.alphabetical.map { |author| [author.name, author.id] }
+          f.input :category_id, as: :select, collection: Category.alphabetical.map { |author| [author.name, author.id] }
+
+          f.input :title
+          f.input :original_title
+          f.input :thumbnail, as: :file
+          f.input :status, as: :select, collection: Book.statuses.keys.map { |status| [status.humanize, status] }
+          f.input :publication_date, as: :datepicker
+
+          f.input :description, as: :text
+          # f.input :description, as: :action_text
+        end
+      end
+
+      column do
+        f.inputs "Book versions" do
+          f.object.book_versions.build if f.object.book_versions.blank?
+
+          f.has_many :book_versions, heading: 'Books versions', allow_destroy: true do |d|
+            d.input :id, as: :hidden
+            d.input :file_type, as: :select, collection: BookVersion.file_types.keys.map { |file_type| [file_type.humanize, file_type] }
+            d.input :file, as: :file
+          end
+
+          # f.semantic_fields_for :book_versions do |ff|
+          #   ff.input :id, as: :hidden
+          #   ff.input :file_type, as: :select, collection: BookVersion.file_types.keys.map { |file_type| [file_type.humanize, file_type] }
+          #   ff.input :file, as: :file
+
+          #   ff.input :_destroy, :as => :boolean
+
+          #   # link_to_add_association 'add version', ff, :book_versions
+          # end
+        end
+      end
+    end
+  end
+
+  controller do
+    def new
+      super do
+
+        # build a new book version
+        resource.book_versions.build
+      end
+    end
+  end
 end

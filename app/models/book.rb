@@ -1,7 +1,17 @@
 class Book < ApplicationRecord
+  STATUSES = %w[draft published archived].freeze
+
   belongs_to :author
   belongs_to :category
   has_many :book_versions, dependent: :destroy
+
+  enum status: STATUSES.zip(STATUSES).to_h
+
+  accepts_nested_attributes_for :book_versions
+
+  has_one_attached :thumbnail
+
+  # has_rich_text :description
 
   def self.ransackable_associations(auth_object = nil)
     ["author", "book_versions", "category"]

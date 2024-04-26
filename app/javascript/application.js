@@ -11,3 +11,5 @@ document.body.addEventListener('click', function(event) {
     event.target.parentNode.style.display = 'none';
   }
 });
+import "trix"
+import "@rails/actiontext"
