@@ -16,8 +16,7 @@ module InvestmentOwl
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
 
-    config.hosts << "04d14eae9304.ngrok.app"
-    config.hosts << "04d14eae9304.ngrok.app"
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
     ActiveSupport::Dependencies.autoload_paths << Rails.root.join('services')
 

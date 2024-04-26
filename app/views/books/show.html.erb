@@ -14,18 +14,30 @@
         <h1 class='card-title'><%= @book.title %></h1>
         <p class='card-text'><%= t '.author' %>: <%= @book.author_name %></p>
         <p class='card-text'><%= t '.published_at' %>: <%= @book.publish_year %></p>
+
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <% @book.book_versions.type_sort.each_with_index do |bv, index| %>
+            <div class="text-xs font-weight-bold text-success">
+              <%= link_to bv.file_type, url_for(bv.file), target: '_blank',
+                class: "btn btn-sm btn-outline-#{bootstrap_sequent_color(index)}" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
 
-    <div class='book-description'>
-      <%= raw @book.description %>
+    <div class='row book-description mt-3'>
+      <div class='col-12 p-0'>
+        <h3 class='card-title'><%= t '.book_description' %></h3>
+        <%= raw @book.description %>
+      </div>
     </div>
   </div>
 </div>
 
 <div class='card mb-5'>
   <div class='card-body'>
-    <h2 class='card-title'><%= t '.comments' %></h2>
+    <h3 class='card-title'><%= t '.comments' %></h3>
     <div class='comments'>
       <%# render @book.comments %>
     </div>
