@@ -22,4 +22,8 @@ class Book < ApplicationRecord
   end
 
   delegate :name, to: :author, prefix: true
+
+  def publish_year
+    publication_date&.year
+  end
 end

@@ -1,7 +1,7 @@
 ActiveAdmin.register Book do
   menu parent: 'Manage Books', priority: 3, label: 'Books'
 
-  permit_params :title, :original_title, :description, :publication_date, :status, :author_id, :category_id,
+  permit_params :title, :original_title, :description, :publication_date, :status, :author_id, :category_id, :thumbnail,
                 book_versions_attributes: %i[id file_type file _destroy]
 
   filter :title_cont, label: 'Title'

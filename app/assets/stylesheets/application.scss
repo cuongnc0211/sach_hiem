@@ -37,10 +37,18 @@ turbo-frame {
   border: 1px solid red;
 }
 
-.deposit {
-  color: green;
+.book-thumb-container {
+  height: 300px;
 }
 
-.withdraw {
-  color: red;
+.placeholder-thumb {
+  width: 200px;
+  height: 300px;
+  background-color: grey;
+  margin: auto;
+}
+
+.book-detail-thumb {
+  height: 100%;
+  margin: auto;
 }
