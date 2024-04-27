@@ -89,3 +89,6 @@ gem 'activeadmin'
 gem 'cancancan'
 gem 'draper'
 gem 'pundit'
+
+# S3 storage
+gem 'aws-sdk-s3'
