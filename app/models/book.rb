@@ -7,7 +7,7 @@ class Book < ApplicationRecord
 
   enum status: STATUSES.zip(STATUSES).to_h
 
-  accepts_nested_attributes_for :book_versions
+  accepts_nested_attributes_for :book_versions, allow_destroy: true
 
   has_one_attached :thumbnail
 
