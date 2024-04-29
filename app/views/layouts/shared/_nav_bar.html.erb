@@ -10,17 +10,26 @@
       <ul class="navbar-nav ms-auto me-lg-5">
         <li class="nav-item">
           <a class="nav-link" href="<%= admin_books_path %>">
-            <%= t('.dashboard') %>
+            <%= t('.admin') %>
           </a>
         </li>
-      </ul>
 
-      <% unless current_user %>
-        <a class="btn fw-500 ms-lg-4 btn-primary" href="<%= new_user_session_path %>">
-          <%= t('.login') %>
-          <i class="ms-2" data-feather="arrow-right"></i>
-        </a>
-      <% end %>
+        <% if current_user %>
+          <li class="nav-item dropdown no-caret">
+            <p>
+              <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <%= t '.welcome' %> <%= current_user.email %>
+                <svg class="svg-inline--fa fa-chevron-right dropdown-arrow" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path></svg><!-- <i class="fas fa-chevron-right dropdown-arrow"></i> Font Awesome fontawesome.com -->
+              </a>
+            </p>
+          </li>
+        <% else %>
+          <a class="btn fw-500 ms-lg-4 btn-primary" href="<%= new_user_session_path %>">
+            <%= t('.login') %>
+            <i class="ms-2" data-feather="arrow-right"></i>
+          </a>
+        <% end %>
+      </ul>
     </div>
   </div>
 </nav>

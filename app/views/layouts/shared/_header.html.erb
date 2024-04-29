@@ -1,4 +1,7 @@
-<header class="page-header-ui page-header-ui-dark bg-img-cover overlay" style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+<% show_header = defined?(@show_header) ? @show_header : false %>
+
+<header class="page-header-ui page-header-ui-dark bg-img-cover overlay <%= 'd-none' unless show_header %>"
+  style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
   <div class="page-header-ui-content position-relative">
     <div class="container px-5">
       <div class="row gx-5 justify-content-center">
