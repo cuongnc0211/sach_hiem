@@ -5,7 +5,8 @@
         <% if @book.thumbnail.blob %>
           <%= image_tag @book.thumbnail, class: 'book-detail-thumb' %>
         <% else %>
-          <div class='placeholder-thumb'>
+          <div class="placeholder-thumb bg-<%= bootstrap_random_color %>">
+            <%= @book.title.upcase %>
           </div>
         <% end %>
       </div>
@@ -18,13 +19,13 @@
         <div class="mt-3">
           <p><b><%= t '.download' %></b></p>
           <% @book.book_versions.type_sort.each_with_index do |bv, index| %>
-
-            <div class="text-xs font-weight-bold text-success d-inline mr-3">
-              <% link = url_for(bv.file) if bv.file.blob %>
-              <%= link_to bv.file_type, link, target: '_blank',
-                class: "btn btn-sm btn-outline-#{bootstrap_sequent_color(index)}" %>
-            </div>
-
+            <% if bv.file.attached? %>
+              <div class="text-xs font-weight-bold text-success d-inline mr-3">
+                <% link = url_for(bv.file) if bv.file.blob %>
+                <%= link_to bv.file_type, link, target: '_blank',
+                  class: "btn btn-sm btn-outline-#{bootstrap_sequent_color(index)}" %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>

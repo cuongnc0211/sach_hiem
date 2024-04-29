@@ -1,0 +1,9 @@
+<% if book.thumbnail.attached? %>
+  <div class='d-flex' style='height: 216px;'>
+    <%= image_tag book.thumbnail, class: 'card-img-top book-thumb-list' %>
+  </div>
+<% else %>
+  <div class='d-flex' style='height: 216px;'>
+    <div class='virtual_book_thumb bg-<%= bootstrap_random_color %>'><%= book.title.upcase %></div>
+  </div>
+<% end %>

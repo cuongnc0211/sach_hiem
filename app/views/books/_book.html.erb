@@ -1,9 +1,9 @@
 <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
   <a class="card lift h-100" href="<%= book_path(book) %>">
     <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">New</div>
-    <div class='d-flex' style='height: 216px;'>
-      <%= image_tag book.thumbnail, class: 'card-img-top book-thumb-list' %>
-    </div>
+
+    <%= render 'thumb', book: book %>
+
     <div class="card-body p-3">
       <div class="card-title small mb-0"><%= book.title %></div>
       <div class="text-xs text-gray-500"><%= book.author_name %></div>
