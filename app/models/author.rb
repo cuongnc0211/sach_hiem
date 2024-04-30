@@ -23,6 +23,6 @@ class Author < ApplicationRecord
   def clean_accent_marks
     return if self.changed.exclude?("name")
 
-    self.no_accents_name = remove_accent_marks(title)
+    self.no_accents_name = remove_accent_marks(name)
   end
 end
