@@ -94,3 +94,9 @@ gem 'pundit'
 
 # S3 storage
 gem 'aws-sdk-s3'
+
+# full-text search
+gem "pg_search"
+
+# accent marks process
+gem "unicode_utils"

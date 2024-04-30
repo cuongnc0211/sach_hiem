@@ -4,9 +4,11 @@
   <%= render @books %>
 </div>
 
-<div class="mb-10">
-  <a class="text-arrow-icon" href="#!">
-    <%= t '.see_more' %>
-    <i data-feather="arrow-right"></i>
-  </a>
-</div>
+<% if @pagy.next %>
+  <div class="mb-10">
+    <a class="text-arrow-icon" href="#!">
+      <%= t '.see_more' %>
+      <i data-feather="arrow-right"></i>
+    </a>
+  </div>
+<% end %>
