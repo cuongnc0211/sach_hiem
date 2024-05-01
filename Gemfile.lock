@@ -400,6 +400,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   letter_opener
+  mini_magick
   monetize (~> 1.12)
   money-rails (~> 1.12)
   pagy
