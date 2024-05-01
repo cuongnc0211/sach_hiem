@@ -1,6 +1,7 @@
 <% if book.thumbnail.attached? %>
   <div class='d-flex' style='height: 216px;'>
-    <%= image_tag book.thumbnail, class: 'card-img-top book-thumb-list' %>
+    <%= image_tag book.thumbnail.representation(resize_to_limit: [nil, 210]),
+      class: 'card-img-top book-thumb-list' %>
   </div>
 <% else %>
   <div class='d-flex' style='height: 216px;'>

@@ -32,6 +32,7 @@ class Book < ApplicationRecord
   accepts_nested_attributes_for :book_versions, allow_destroy: true
 
   has_one_attached :thumbnail
+  after_save :resize_thumbnail, if: -> { self.is_a?(Book) && thumbnail.attached? && thumbnail.changed? }
 
   # has_rich_text :description
 
@@ -55,5 +56,9 @@ class Book < ApplicationRecord
     return if self.changed.exclude?("title")
 
     self.no_accents_title = remove_accent_marks(title)
+  end
+
+  def resize_thumbnail
+    image.variant(resize_to_limit: [nil, 210]).processed
   end
 end
