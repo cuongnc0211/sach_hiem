@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :books, only: %i[index show]
+
+  namespace :turbo_frame do
+    get "home_books" => "home_books#index", as: :turbo_frame_home_books
+  end
 end

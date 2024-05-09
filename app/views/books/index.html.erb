@@ -1,13 +1,11 @@
-
-<div class="row gx-5">
-  <%= render @books %>
-</div>
-
-<% if @pagy.next %>
-  <div class="mb-10">
-    <a class="text-arrow-icon" href="#!">
-      <%= t '.see_more' %>
-      <i data-feather="arrow-right"></i>
-    </a>
+<turbo-frame id="home">
+  <div class="row gx-5">
+    <%= render partial: '/books/book', collection: @books, as: :book %>
   </div>
-<% end %>
+
+  <div class='row mb-5'>
+    <div class='col-12 center'>
+      <%== pagy_bootstrap_nav @pagy %>
+    </div>
+  </div>
+</turbo-frame>

@@ -5,9 +5,9 @@ class BooksController < ApplicationController
 
     if params[:search].present?
       @books = Book.search_title(params[:search])
-      @pagy, @books = pagy(@books.includes(:author), items: 10)
+      @pagy, @books = pagy(@books.includes(:author))
     else
-      @pagy, @books = pagy(Book.published.includes(:author), items: 10)
+      @pagy, @books = pagy(Book.published.includes(:author))
     end
   end
 
