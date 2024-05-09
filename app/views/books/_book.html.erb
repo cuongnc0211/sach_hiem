@@ -1,5 +1,5 @@
 <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-  <a class="card lift h-100" href="<%= book_path(book) %>">
+  <a class="card lift h-100" href="<%= book_path(book) %>" data-turbo='false'>
     <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">New</div>
 
     <%= render '/books/thumb', book: book %>

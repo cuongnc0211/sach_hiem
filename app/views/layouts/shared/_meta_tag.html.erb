@@ -1,0 +1,23 @@
+<% if @book&.persisted? %>
+  <meta property="og:title" content="<%= @book.title %>">
+  <meta property="og:description" content="<%= @book.description %>">
+  <meta property="og:image" content="<%= @book.thumbnail.url %>">
+  <meta property="og:url" content="<%= book_url(@book) %>">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@username">
+  <meta name="twitter:title" content="<%= @book.title %>">
+  <meta name="twitter:description" content="<%= @book.description %>">
+  <meta name="twitter:image" content="<%= @book.thumbnail.url %>">
+<% else %>
+  <meta property="og:title" content="Tu Sach Hay">
+  <meta property="og:description" content="Tu Sach Hay">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80">
+  <meta property="og:url" content="<%= root_url %>">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@username">
+  <meta name="twitter:title" content="Tu Sach Hay">
+  <meta name="twitter:description" content="Tu Sach Hay">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80">
+<% end %>
