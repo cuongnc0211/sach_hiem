@@ -102,3 +102,5 @@ gem "pg_search"
 
 # accent marks process
 gem "unicode_utils"
+
+gem 'select2-rails'

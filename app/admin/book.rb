@@ -22,8 +22,8 @@ ActiveAdmin.register Book do
       column do
         f.semantic_errors
         f.inputs 'Books' do
-          f.input :author_id, as: :select, collection: Author.alphabetical.map { |author| [author.name, author.id] }
-          f.input :category_id, as: :select, collection: Category.alphabetical.map { |author| [author.name, author.id] }
+          f.input :author_id, as: :select, collection: Author.alphabetical.map { |author| [author.name, author.id] }, input_html: { class: 'select2 form-control' }
+          f.input :category_id, as: :select, collection: Category.alphabetical.map { |c| [c.name, c.id] }, input_html: { class: 'select2 form-control' }
 
           f.input :title
           f.input :original_title
